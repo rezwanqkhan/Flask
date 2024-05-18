@@ -17,6 +17,7 @@ domain name of the site.
 #
 # """The Form is posted to ‘/setcookie’ URL. The associated view function
 # sets a Cookie name userID and renders another page."""
+# The readcookie.html file is missed
 # @app.route('/setcookie', methods = ['POST', 'GET'])
 # def setcookie():
 #    if request.method == 'POST':

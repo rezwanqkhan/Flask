@@ -2,29 +2,31 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# 1
-# @app.route('/')
-# def hello_world():
-#     return 'Hello world'
+#1
+@app.route('/')
+def hello_world():
+    return 'Hello world'
 
-# 2
-# @app.route('/hello/<name>')
-# def hello_name(name):
-#       return 'Hello %s!' % name
-# http://127.0.0.1:5000/hello/Rashid
-# output  Hello Rashid!
+#2
+@app.route('/hello/<name>')
+def hello_name(name):
+      return 'Hello %s!' % name
+if __name__ == '__main__':
+    app.run(debug=True)
+#http://127.0.0.1:5000/hello/Rashid
+#output  Hello Rashid!
 
-# 3
-# we can just inter int num
-# @app.route('/blog/<int:postID>')
-# def show_blog(postID):
-#      return 'Blog Number %d' % postID
-# # we can just inter the float num
-# @app.route('/rev/<float:revNo>')
-# def revision(revNo):
-#     return 'Revision Number %f' % revNo
-
-
+#3
+#we can just inter int num
+@app.route('/blog/<int:postID>')
+def show_blog(postID):
+     return 'Blog Number %d' % postID
+# we can just inter the float num
+@app.route('/rev/<float:revNo>')
+def revision(revNo):
+    return 'Revision Number %f' % revNo
+if __name__ == '__main__':
+    app.run(debug=True)
 """
 The url_for() function is very useful for dynamically building a URL for a
 specific function. The function accepts the name of a function as first
@@ -50,7 +52,8 @@ The following script demonstrates use of url_for() function."""
 #         return redirect(url_for('hello_admin'))
 #     else:
 #         return redirect(url_for('hello_guest', guest=name))
-
+# if __name__ == '__main__':
+#     app.run(debug=True)
 # from flask import Flask, redirect, url_for, request
 #
 # login.html is used the following code
@@ -68,7 +71,8 @@ The following script demonstrates use of url_for() function."""
 #         user = request.args.get('nm')
 #         return redirect(url_for('success', name=user))
 
-
+# if __name__ == '__main__':
+#     app.run(debug=True)
 """
 Flask – Templates
 It is possible to return the output of a function bound to a certain URL in
@@ -79,7 +83,8 @@ will render ‘Hello World’ with <h1> tag attached to it.
 # @app.route('/')
 # def index():
 #     return '<html><body><h1>Hello World</h1></body></html>'
-
+# if __name__ == '__main__':
+#     app.run(debug=True)
 """This is where one can take advantage of Jinja2 template engine, on which
 Flask is based. Instead of returning hardcode HTML from the function, a
 HTML file can be rendered by the render_template() function."""
@@ -93,6 +98,8 @@ from flask import Flask
 # @app.route('/hello/<user>')
 # def hello_name(user):
 #    return render_template('hello.html', name = user)
+# if __name__ == '__main__':
+#     app.run(debug=True)
 
 # Flask will try to find the HTML file in the templates folder, in the same
 # folder in which this script is present.
@@ -129,7 +136,8 @@ from HTML.
 #      dict = {'phy':50,'che':60,'maths':70}
 #      return render_template('result.html', result = dict)
 
-
+# if __name__ == '__main__':
+#     app.run(debug=True)
 """
 Flask – Static Files
 A web application often requires a static file such as a javascript file or a
@@ -148,21 +156,24 @@ A special endpoint ‘static’ is used to generate URL for static files.
 # @app.route("/")
 # def index():
 #     return render_template("index.html")
-from flask import Flask, render_template, request
+# if __name__ == '__main__':
+#     app.run(debug=True)
 
-app = Flask(__name__)
-
-
-@app.route('/')
-def student():
-    return render_template('student.html')
-
-@app.route('/result1', methods=['POST', 'GET'])
-def result():
-    if request.method == 'POST':
-        result = request.form
-        return render_template("result1.html", result=result)
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
+# from flask import Flask, render_template, request
+#
+# app = Flask(__name__)
+#
+#
+# @app.route('/')
+# def student():
+#     return render_template('student.html')
+#
+# @app.route('/result1', methods=['POST', 'GET'])
+# def result():
+#     if request.method == 'POST':
+#         result = request.form
+#         return render_template("result1.html", result=result)
+#
+#
+# if __name__ == '__main__':
+#     app.run(debug=True)
