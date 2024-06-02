@@ -27,7 +27,7 @@ To set up this Flask project, follow the steps below:
 1. **Clone the Repository:**
 
     ```sh
-    git clone <repository-url>
+    git clone https://github.com/rezwanqkhan/Flask.git
     cd <repository-directory>
     ```
 
