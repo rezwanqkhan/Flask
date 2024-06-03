@@ -17,7 +17,7 @@ if __name__ == '__main__':
 #output  Hello Rashid!
 
 #3
-#we can just inter int num
+#we can just enter int num
 @app.route('/blog/<int:postID>')
 def show_blog(postID):
      return 'Blog Number %d' % postID
@@ -149,7 +149,7 @@ A special endpoint ‘static’ is used to generate URL for static files.
 """
 
 # from flask import Flask, render_template
-# Say hello alert exmple
+# Say hello alert example
 # app = Flask(__name__)
 #
 #
